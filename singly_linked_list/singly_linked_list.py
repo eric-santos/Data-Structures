@@ -32,10 +32,23 @@ class LinkedList:
             new_tail = Node(value, None)
             # set current tail.next (pointer) to new node
             old_tail = self.tail
-            old_tail.next = new_tail
+            old_tail.next_node = new_tail
             # set tail to new tail
             self.tail = new_tail
             # new length
+            self.length += 1
+
+    def add_to_head(self, value):
+        if not self.head:
+            new_head = Node(value, None)
+            self.head = new_head
+            self.tail = new_head
+            self.length += 1
+        else:
+            new_head = Node(value, self.head)
+            old_head = self.head
+            old_head.next_node = self.head
+            self.head = new_head
             self.length += 1
 
     def remove_head(self):
@@ -55,7 +68,7 @@ class LinkedList:
         else:
             #set self.head to current_head.next
             current_head = self.head
-            self.head = current_head.next
+            self.head = current_head.next_node
             # return current_head.value
             self.length -= 1
             return current_head.value
@@ -76,3 +89,16 @@ class LinkedList:
             else:
                 self.tail = self.tail.get_next_node()
                 return ret_value
+
+
+    def remove_at_index(self, index):
+        if index >= self.length:
+            return None
+
+        prev_node = self.head
+        for i in range(index - 1): #points to node previous to target node
+            prev_node = prev_node.next_node
+        target = prev_node.next_node
+        target.next_node = None
+        self.length = self.length - 1
+        return target.get_value
