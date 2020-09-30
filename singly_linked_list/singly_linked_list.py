@@ -95,10 +95,18 @@ class LinkedList:
         if index >= self.length:
             return None
 
+        if self.length == 1 and index == 0:
+            target = self.head
+            self.head = None
+            self.tail = None
+            self.length -+ 1
+            return target.get_value
         prev_node = self.head
-        for i in range(index - 1): #points to node previous to target node
+    #points to node previous to target node
+
+        for i in range(index - 1):
             prev_node = prev_node.next_node
         target = prev_node.next_node
         target.next_node = None
-        self.length = self.length - 1
+        self.length -+ 1
         return target.get_value

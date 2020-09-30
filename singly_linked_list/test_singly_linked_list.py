@@ -45,7 +45,7 @@ class LinkedListTests(unittest.TestCase):
        
 
         self.list.add_to_tail(100)
-        self.assertEqual(self.list.remove_at_index(), 100)
+        self.assertEqual(self.list.remove_at_index(0), 100)
 
 
 if __name__ == '__main__':
