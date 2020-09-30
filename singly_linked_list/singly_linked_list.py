@@ -32,7 +32,27 @@ def add_to_tail(self, value):
         self.length += 1
 
 def remove_head(self):
-    pass
+    # if no element in  list (empty list)
+    if not self.head:
+        return None
+    elif  self.head == self.tail:
+        # set head to current_head
+        current_head = self.head
+        # set head and tail to None, basically deleting 
+        self.head = None
+        self.tail = None
+        # remove the 1 item from length
+        self.length -= 1
+        # return the new array value
+        return current_head.value
+    else:
+        #set self.head to current_head.next
+        current_head = self.head
+        self.head = current_head.next
+        # return current_head.value
+        self.length -= 1
+        return current_head.value
+
 
 def remove_tail(self):
     pass

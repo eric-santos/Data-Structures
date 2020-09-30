@@ -13,11 +13,11 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(self.list.tail.value, 2)
         self.assertEqual(self.list.head.value, 1)
 
-    # def test_remove_head(self):
-    #     self.list.add_to_tail(10)
-    #     self.list.add_to_tail(20)
-    #     self.assertEqual(self.list.remove_head(), 10)
-    #     self.assertEqual(self.list.remove_head(), 20)
+    def test_remove_head(self):
+        self.list.add_to_tail(10)
+        self.list.add_to_tail(20)
+        self.assertEqual(self.list.remove_head(), 10)
+        self.assertEqual(self.list.remove_head(), 20)
 
         # self.list.add_to_tail(10)    
         # self.assertEqual(self.list.remove_head(), 10)    
